@@ -2,21 +2,19 @@
 
 > nuxt/nuxt.js#2737 reproduction
 
-## Build Setup
+## Reproduction steps
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
+1. `yarn install`
+1. `yarn run dev`
+1. Go to the main page (`http://localhost:3000` by default)
+1. Open developer's console
+1. Click **Break the app** button
+1. Observe the console output
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Expected result
 
-# build for production and launch server
-$ npm run build
-$ npm start
+After pushing the button the page title should become `New title!`.
 
-# generate static project
-$ npm run generate
-```
+## Observed result
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+After pushing the button the page title doesn't change, however you can see that the URL is successfully updated and `asyncData` is executed (from console logs). Also, if you refresh the page with present `title` param you will see that the page is rendered properly, with `title` param value taken into account.
